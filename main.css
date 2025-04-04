@@ -29,6 +29,11 @@ body {
     text-align: center;
     font-weight: 100;
 }
+a {
+    font-weight: 800;
+    color: #2f9f7a;
+    text-decoration: none;
+}
 section {
     display: flex;
     justify-content: center;
@@ -93,6 +98,15 @@ section {
 }
 .shop-item button:hover {
     background: #0056b3;
+}
+.reference-section {
+    display: block;
+}
+ol.reference-list {
+    padding: 0 1rem;
+}
+ol.reference-link > li {
+    margin-bottom: 1rem;
 }
 .reference-link {
     word-break: break-all;
