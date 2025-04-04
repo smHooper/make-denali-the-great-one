@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times', serif;
+}
+body {
+    background-color:white;
+    color: #333;
+    font-size: 1rem;
+}
+.hero {
+    background: url('assets/denali_morning_light.jpg') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: min(4rem, 10vw);
+    font-weight: bold;
+    padding: 2rem;
+    text-transform: capitalize;
+}
+.section-header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+    font-weight: 100;
+}
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem .5rem;
+}
+.section-content {
+    width: min(80%, 700px);
+}
+.section-content p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+.info-section {
+    background-color: #000;
+    color: white;
+}
+.shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.shop-item {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    text-align: center;
+    height: 350px;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+.shop-item .shop-item-label {
+    width: 100%;
+}
+.shop-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+.shop-item.sticker img {
+    box-shadow: 3px 3px 12px 1px rgb(0 0 0 / 30%);
+}
+.product-img {
+    max-height: 300px;
+}
+.shop-item button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.shop-item button:hover {
+    background: #0056b3;
+}
+.reference-link {
+    word-break: break-all;
+}
+
+@media (min-width: 768px) {
+    .shop {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1080px) {
+    .shop-item {
+        height: unset;
+    }
+}
