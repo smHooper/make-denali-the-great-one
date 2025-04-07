@@ -20,6 +20,7 @@ body {
     font-weight: bold;
     padding: 2rem;
     text-transform: capitalize;
+    background: #000;
 }
 header.hero {
     background: url('assets/denali_morning_light.jpg') no-repeat center center/cover;
@@ -28,7 +29,7 @@ header.hero {
     background: url('assets/denali_reflection_pond_dark.jpg') no-repeat center center/cover;
 }
 .section-header {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
     width: 100%;
     text-align: center;
