@@ -46,10 +46,19 @@ section {
     flex-wrap: wrap;
     padding: 2rem .5rem;
 }
+/* Width of container forces new line
+but width of the header will never be more than
+700 pixels */
+.section-header-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .section-content, 
 .section-header {
     width: min(90%, 700px);
 }
+
 .section-content p {
     font-size: 1.3rem;
     line-height: 2rem;
