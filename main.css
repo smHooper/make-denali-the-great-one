@@ -37,7 +37,7 @@ header.hero {
 }
 a {
     font-weight: 800;
-    color: #2f9f7a;
+    color: #2f9f7a !important;
     text-decoration: none;
 }
 section {
@@ -137,3 +137,16 @@ ol.reference-link > li {
         height: unset;
     }
 }
+
+/* ########### utitlity classes ############# */
+.hidden {
+    display: none !important;
+  }
+  .transparent {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .invisible {
+    visibility: hidden;
+  }
+/* ----------- utitlity classes -------- */
