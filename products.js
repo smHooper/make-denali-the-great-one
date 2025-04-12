@@ -15,7 +15,8 @@ function scrollToCarouselImg(index) {
 
 
 function getHatImgPaths(index) {
-    const img_paths = IMG_INDICES.map(i => `${PRODUCTS_DIR}/hat_${index}_${i}.webp`);
+    const productType = $('#product-type').text().toLowerCase();
+    const img_paths = IMG_INDICES.map(i => `${PRODUCTS_DIR}/${productType}_${index}_${i}.webp`);
     const thumb_paths = img_paths.map(p => p.replace(PRODUCTS_DIR, THUMBNAIL_DIR));
     return {
         imgs: img_paths,
