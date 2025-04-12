@@ -2174,7 +2174,12 @@ html {
     top: 0
 }
 
-.with-tooltip:hover .tooltip,.with-tooltip:hover:after,.with-tooltip:hover:focus .tooltip,.with-tooltip:hover:focus:after {
+.with-tooltip:hover .tooltip,
+.with-tooltip:hover:after,
+.with-tooltip:hover:focus .tooltip,
+.with-tooltip:hover:focus:after,
+.with-tooltip.has-focus .tooltip,
+.with-tooltip.has-focus:after{
     opacity: 1;
     pointer-events: auto
 }

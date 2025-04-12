@@ -110,6 +110,17 @@ $(document).ready(() => {
         $('.mockup-button.selected').removeClass('selected');
         $('.mockup-button').eq(newIndex).addClass('selected');
     });
+
+    // Add JS fallback for safari because it doesn't implement :focus properly
+    $('.with-tooltip').click(e => {
+        $(e.target)
+            .closest('.with-tooltip')
+                .toggleClass('has-focus');
+    })
+    // when anything else is tapped/clicked, remove the faux-focus class
+    $('*:not(.with-tooltip):not(.tooltip)').click(e => {
+        $('.with-tooltip').removeClass('has-focus');
+    })
 })
 
 /*jQuery extensions*/
