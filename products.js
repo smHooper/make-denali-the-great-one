@@ -57,6 +57,9 @@ $(document).ready(() => {
         $(MOBILE_CAROUSEL_INDICATOR_SELECTOR).removeClass('selected')
             .eq(index)
                 .addClass('selected');
+        
+        // toggle visibility of left/right img buttons
+        toggleCarouselNextImgButtons(index);
     })
 
     // onclick handler for button to change colorway
