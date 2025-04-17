@@ -26,4 +26,9 @@ $(document).ready(() => {
     $(window).on('scroll resize', toggleNavBackground);
     toggleNavBackground();
 
+    $(window).click(e => {
+        if (!$(e.target).closest('#navbar').length) {
+            $navbarToggle.attr('aria-expanded', false);
+        }
+    })
 });

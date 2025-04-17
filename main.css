@@ -210,9 +210,9 @@ line-height: 1.6;
     }
 
     .navbar-link-list,
-    #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-link-list {
+    #navbar-toggle #navbar-menu .navbar-link-list {
         margin: 0;
-        padding: 0;
+        padding: 0 !important;
         box-shadow: none;
         position: static;
         flex-direction: row;
