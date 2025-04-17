@@ -8,12 +8,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    
+    <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+    <script src="index.js"></script>
 </head>
 <body>
-    <header class="hero">
-        MAKE DENALI<br>THE GREAT ONE AGAIN
+    <header id="navbar">
+        <nav class="navbar-container container">
+            <div></div>
+            <button
+                type="button"
+                id="navbar-toggle"
+                aria-controls="navbar-menu"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+            >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div id="navbar-menu" aria-labelledby="navbar-toggle">
+                <ul class="navbar-link-list">
+                <li class="navbar-item"><a class="navbar-link" href="#why-the-great-one">Why The Great One</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="#shop-section">Show Your Support</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="#donation-info-section">Where Does My $ Go?</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="#contact-section">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <section class="info-section bg-dark">
+    <section class="hero">
+        <h1>MAKE DENALI<br>THE GREAT ONE AGAIN</h1>
+    </section>
+    <section id="why-the-great-one" class="info-section bg-dark">
         <div class="section-header-container">
             <h1 class="section-header">Peak Stupidity</h1>
         </div>
@@ -35,7 +62,7 @@
         </div>
 
     </section>
-    <section id="shop" class="shop">
+    <section id="shop-section" class="shop">
         <div class="section-header-container">
             <h1 class="section-header">Show Your Support For The Great One</h1>
         </div>
@@ -94,7 +121,7 @@
             </ol>
         </div>
     </section>
-    <section class="contact-section bg-dark">
+    <section id="contact-section" class="contact-section bg-dark">
         <div class="section-header-container">
             <h2 class="section-header">Questions?</h2>
         </div>
@@ -105,5 +132,6 @@
             Contact us at <a href="mailto:info@makedenaligreat.org">info@makedenaligreat.org</a>!
         </div>
     </section>
+
 </body>
 </html>
