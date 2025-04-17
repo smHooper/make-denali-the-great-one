@@ -4,6 +4,7 @@ IMG_INDICES = [1, 2 , 3];
 COLOR_BUTTON_LIST_SELCTOR = '.mockup-color-button-list';
 MOBILE_CAROUSEL_INDICATOR_SELECTOR = '.mobile-mockup-carousel-indicator';
 
+
 function scrollToCarouselImg(index) {
      // Scroll to the selected image
     const carousels = document.querySelectorAll('.carousel');

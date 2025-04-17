@@ -1,33 +1,246 @@
+:root {
+    --navbar-container-bg-color: #222222cc;
+    --navbar-bg-color: #222;
+    --navbar-text-color: hsl(0, 0%, 85%);
+    --navbar-text-color-focus: white;
+    --navbar-bg-contrast: hsl(0, 0%, 25%);
+    --navbar-height: 64px;
+    --navbar-link-font-size: 1.2rem;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Times', serif;
 }
+html, body {
+    scroll-behavior: smooth;
+}
 body {
     background-color:white;
     color: #333;
-    font-size: 1rem;
+    font-size: 1rem;   
 }
+@media (prefers-reduced-motion) { 
+    /* if the user has prefers-reduce-motion set, don't animate scroll*/
+    html, body {
+        scroll-behavior: initial;
+    }
+}
+
 .hero {
     height: 60vh;
     display: flex;
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
     align-items: end;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
-    color: white;
-    font-size: min(4rem, 10vw);
     font-weight: bold;
     padding: 2rem;
     text-transform: capitalize;
     background: #000;
-}
-header.hero {
     background: url('assets/denali_morning_light.jpg') no-repeat center center/cover;
 }
+.hero > h1 {
+    width: 100%;
+    font-size: min(4rem, 10vw);
+    color: white;
+}
+
+/* ------------------ nav bar ------------------- */
+/* body {
+height: 100vh;
+font-family: Arial, Helvetica, sans-serif;
+line-height: 1.6;
+} */
+
+#navbar {
+    position: fixed;
+    height: var(--navbar-height);
+    /* background-color: var(--navbar-bg-color); */
+    left: 0;
+    right: 0;
+    padding-top: 1rem;
+    font-weight: bold;
+    transition: 0.25s ease all;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); */
+}
+#navbar.scrolled { /*give it a background color when window is scrolled*/
+    background-color: var(--navbar-container-bg-color);
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-item {
+    margin: 0.4em;
+    width: 100%;
+}
+
+.home-link,
+.navbar-link {
+    color: var(--navbar-text-color);
+    text-decoration: none;
+    display: flex;
+    font-weight: bolder;
+    align-items: center;
+    line-height: 3rem;
+    height: 3rem;
+}
+
+.home-link:is(:focus, :hover) {
+    color: var(--navbar-text-color-focus);
+}
+
+.navbar-link {
+    justify-content: center;
+    width: 100%;
+    padding: 0.4em 0.8em;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    font-size: var(--navbar-link-font-size);
+    /* border-bottom: solid 1px #000; */
+}
+
+.navbar-link:is(:focus, :hover) {
+    color: var(--navbar-text-color-focus);
+    background-color: var(--navbar-bg-contrast);
+}
+.navbar-logo {
+    background-color: var(--navbar-text-color-focus);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5em;
+}
+#navbar-toggle {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.icon-bar {
+    display: block;
+    width: 25px;
+    height: 4px;
+    margin: 2px;
+    background-color: var(--navbar-text-color);
+    transition: 0.25s ease all;
+}
+#navbar-toggle:is(:focus, :hover) .icon-bar {
+    background-color: var(--navbar-text-color-focus);
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+    position: absolute;
+    margin: 0;
+    width: 30px;
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+    transform: rotate(45deg);
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+    transform: rotate(-45deg);
+}
+#navbar-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    /* bottom: 0; */
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+    right: 0;
+}
+#navbar-toggle[aria-expanded="true"] + #navbar-menu {
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    opacity: 1;
+    visibility: visible;
+}
+.navbar-link-list {
+    list-style: none;
+    position: absolute;
+    background-color: var(--navbar-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: 0 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-link-list {
+    padding: 1em;
+}
+@media screen and (min-width: 700px) {
+    #navbar {
+        width: 100%;
+        background-color: var(--navbar-container-bg-color);
+    }
+    #navbar-toggle,
+    #navbar-toggle[aria-expanded="true"] {
+            display: none;
+    }
+
+    #navbar-menu,
+    #navbar-toggle[aria-expanded="true"] #navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .navbar-link-list,
+    #navbar-toggle #navbar-menu .navbar-link-list {
+        margin: 0;
+        padding: 0 !important;
+        box-shadow: none;
+        position: static;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        background-color: #00000000;
+    }
+    .navbar-link {
+        border-bottom: none;
+        line-height: 2rem;
+        height: 2rem;
+        background-color: #00000000;
+    }
+    .navbar-link:is(:focus, :hover) {
+        background-color: #00000000;
+    }
+    section {
+        padding-top: var(--navbar-height) !important;
+    }
+}
+/* ^^^^^^^^^^^ nav bar ^^^^^^^^^^^^^^ */
+
+
 #donation-section {
     background: url('assets/denali_reflection_pond_dark.jpg') no-repeat center center/cover;
 }
+
+
 .section-header {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
@@ -35,7 +248,7 @@ header.hero {
     text-align: center;
     font-weight: 100;
 }
-a {
+a:not(.navbar-link) {
     font-weight: 800;
     color: #2f9f7a !important;
     text-decoration: none;
@@ -44,7 +257,7 @@ section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 2rem .5rem;
+    padding: var(--navbar-height) .5rem .5rem .5rem;
 }
 /* Width of container forces new line
 but width of the header will never be more than
@@ -66,6 +279,7 @@ but width of the header will never be more than
 section.bg-dark {
     background-color: #000;
     color: white;
+    padding-bottom: var(--navbar-height);
 }
 .shop {
     width: 100%;
