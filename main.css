@@ -14,11 +14,21 @@
     box-sizing: border-box;
     font-family: 'Times', serif;
 }
+html, body {
+    scroll-behavior: smooth;
+}
 body {
     background-color:white;
     color: #333;
-    font-size: 1rem;
+    font-size: 1rem;   
 }
+@media (prefers-reduced-motion) { 
+    /* if the user has prefers-reduce-motion set, don't animate scroll*/
+    html, body {
+        scroll-behavior: initial;
+    }
+}
+
 .hero {
     height: 60vh;
     display: flex;
@@ -54,9 +64,10 @@ line-height: 1.6;
     right: 0;
     padding-top: 1rem;
     font-weight: bold;
+    transition: 0.25s ease all;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); */
 }
-#navbar.scroll { /*give it a background color when window is scrolled*/
+#navbar.scrolled { /*give it a background color when window is scrolled*/
     background-color: var(--navbar-container-bg-color);
 }
 .navbar-container {
@@ -246,7 +257,7 @@ section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 2rem .5rem;
+    padding: var(--navbar-height) .5rem .5rem .5rem;
 }
 /* Width of container forces new line
 but width of the header will never be more than
@@ -268,6 +279,7 @@ but width of the header will never be more than
 section.bg-dark {
     background-color: #000;
     color: white;
+    padding-bottom: var(--navbar-height);
 }
 .shop {
     width: 100%;
