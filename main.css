@@ -6,6 +6,7 @@
     --navbar-bg-contrast: hsl(0, 0%, 25%);
     --navbar-height: 64px;
     --navbar-link-font-size: 1.2rem;
+    --section-content-max-width: 700px;
 }
 
 * {
@@ -31,6 +32,7 @@ body {
 
 .hero {
     height: 60vh;
+    width: 100%;
     display: flex;
     /* flex-direction: column; */
     /* flex-wrap: wrap; */
@@ -41,7 +43,11 @@ body {
     padding: 2rem;
     text-transform: capitalize;
     background: #000;
-    background: url('assets/denali_morning_light.jpg') no-repeat center center/cover;
+    background: url('assets/denali_morning_light.webp') no-repeat center center/cover;
+}
+.hero.bg-reflection-pond {
+    /* for mobile */
+    background: url('assets/denali_reflection_pond_portait.webp') no-repeat center center/cover;
 }
 .hero > h1 {
     width: 100%;
@@ -189,50 +195,7 @@ line-height: 1.6;
 #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-link-list {
     padding: 1em;
 }
-@media screen and (min-width: 700px) {
-    #navbar {
-        width: 100%;
-        background-color: var(--navbar-container-bg-color);
-    }
-    #navbar-toggle,
-    #navbar-toggle[aria-expanded="true"] {
-            display: none;
-    }
 
-    #navbar-menu,
-    #navbar-toggle[aria-expanded="true"] #navbar-menu {
-        visibility: visible;
-        opacity: 1;
-        position: static;
-        display: block;
-        height: 100%;
-        width: 100%;
-    }
-
-    .navbar-link-list,
-    #navbar-toggle #navbar-menu .navbar-link-list {
-        margin: 0;
-        padding: 0 !important;
-        box-shadow: none;
-        position: static;
-        flex-direction: row;
-        width: 100%;
-        height: 100%;
-        background-color: #00000000;
-    }
-    .navbar-link {
-        border-bottom: none;
-        line-height: 2rem;
-        height: 2rem;
-        background-color: #00000000;
-    }
-    .navbar-link:is(:focus, :hover) {
-        background-color: #00000000;
-    }
-    section {
-        padding-top: var(--navbar-height) !important;
-    }
-}
 /* ^^^^^^^^^^^ nav bar ^^^^^^^^^^^^^^ */
 
 
@@ -269,7 +232,7 @@ but width of the header will never be more than
 }
 .section-content, 
 .section-header {
-    width: min(90%, 700px);
+    width: min(90%, var(--section-content-max-width));
 }
 
 .section-content p {
@@ -329,6 +292,9 @@ section.bg-dark {
 .shop-item button:hover {
     background: #0056b3;
 }
+.reference-section .section-header {
+    font-size: 1.5rem;
+}
 ol.reference-list {
     padding: 0 1rem;
 }
@@ -337,12 +303,27 @@ ol.reference-link > li {
 }
 .reference-link {
     word-break: break-all;
+    font-size: .75rem;
+}
+
+#get-involved-section {
+    padding-left: 0;
+    padding-right: 0;
+}
+#get-involved-section .section-content {
+    width: calc(min(90% - .5rem, var(--section-content-max-width)));
 }
 
 @media (min-width: 768px) {
     .shop {
         flex-direction: row;
         justify-content: center;
+    }
+    section .hero.bg-reflection-pond {
+        background: url('assets/denali_reflection_pond_landscape.webp') no-repeat center center/cover;
+    }
+    #get-involved-section .section-content {
+        width: min(90%, var(--section-content-max-width)) !important;
     }
 }
 
@@ -352,15 +333,64 @@ ol.reference-link > li {
     }
 }
 
+@media screen and (min-width: 1200px) {
+    #navbar {
+        width: 100%;
+        background-color: var(--navbar-container-bg-color);
+    }
+    #navbar-toggle,
+    #navbar-toggle[aria-expanded="true"] {
+            display: none;
+    }
+
+    #navbar-menu,
+    #navbar-toggle[aria-expanded="true"] #navbar-menu {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .navbar-link-list,
+    #navbar-toggle #navbar-menu .navbar-link-list {
+        margin: 0;
+        padding: 0 !important;
+        box-shadow: none;
+        position: static;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        background-color: #00000000;
+    }
+    .navbar-link {
+        border-bottom: none;
+        line-height: 2rem;
+        height: 2rem;
+        background-color: #00000000;
+    }
+    .navbar-link:is(:focus, :hover) {
+        background-color: #00000000;
+    }
+    section,
+    section.hero {
+        padding: var(--navbar-height) 0 .5rem 0 !important;
+    }
+}
+
 /* ########### utitlity classes ############# */
 .hidden {
     display: none !important;
-  }
-  .transparent {
+}
+.transparent {
     opacity: 0;
     pointer-events: none;
-  }
-  .invisible {
+}
+.invisible {
     visibility: hidden;
-  }
+}
+.pt-0 {
+    padding-top: 0 !important;
+}
 /* ----------- utitlity classes -------- */
